@@ -15,7 +15,7 @@ public class BookingController : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult CreateProduct([FromBody] BookingRequest request)
+    public IActionResult CreateBooking([FromBody] BookingRequest request)
     {
         // check modelstate validation
         if (!ModelState.IsValid)

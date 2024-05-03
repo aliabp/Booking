@@ -13,12 +13,14 @@ public class BookingRepository : IBookingRepository
     
     public int BookingCount(TimeSpan time)
     {
+        // return simultaneous bookings count
         int count = _bookedTimes.Count(b => b.Time == time);
         return count;
     }
 
     public void CreatBooking(BookedTime bookedTime)
     {
+        // reserve a new booking
         _bookedTimes.Add(bookedTime);
     }
 }
