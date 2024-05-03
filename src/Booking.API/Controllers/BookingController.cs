@@ -41,7 +41,7 @@ public class BookingController : ControllerBase
         }
 
         // check requested time is in business hours
-        if (bookingTime < new TimeSpan(9, 0, 0) || bookingTime >= new TimeSpan(16, 0, 0))
+        if (bookingTime < new TimeSpan(9, 0, 0) || bookingTime > new TimeSpan(16, 0, 0))
             return BadRequest();
 
         // check simultaneous booking do not exceed 4
