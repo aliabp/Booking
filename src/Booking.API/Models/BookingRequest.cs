@@ -1,7 +1,7 @@
 namespace Booking.API.Models;
 
 // model for booking request
-public class Booking
+public class BookingRequest
 {
     // booking requested time
     public string Time { set; get; }
