@@ -1,6 +1,6 @@
-# InfoTrack Technical Challenge
+# Booking API
 
-This repository contains my solution for the technical challenge provided by InfoTrack.
+This repository contains my solution for the booking API.
 
 ## API Details
 
