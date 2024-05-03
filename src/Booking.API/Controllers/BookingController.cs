@@ -1,3 +1,4 @@
+using System.Net;
 using Booking.API.Models;
 using Booking.API.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -14,7 +15,10 @@ public class BookingController : ControllerBase
         _bookingRepository = bookingRepository;
     }
 
-    [HttpPost]
+    [HttpPost(Name = "CreateBooking")]
+    [ProducesResponseType(typeof(string), (int)HttpStatusCode.OK)]
+    [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+    [ProducesResponseType((int)HttpStatusCode.Conflict)]
     public IActionResult CreateBooking([FromBody] BookingRequest request)
     {
         // check modelstate validation

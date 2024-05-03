@@ -4,7 +4,7 @@ namespace Booking.API.Repositories;
 
 public class BookingRepository : IBookingRepository
 {
-    private readonly List<BookedTime> _bookedTimes;
+    private List<BookedTime> _bookedTimes;
     
     public BookingRepository()
     {
@@ -14,7 +14,11 @@ public class BookingRepository : IBookingRepository
     public int BookingCount(TimeSpan time)
     {
         // return simultaneous bookings count
-        int count = _bookedTimes.Count(b => b.Time == time);
+        var endTime = time.Add(TimeSpan.FromHours(1));
+        var startTime = time.Add(TimeSpan.FromHours(-1));
+
+        int count = _bookedTimes.Count(b => b.Time > startTime && b.Time < endTime);
+        
         return count;
     }
 
